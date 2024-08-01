@@ -14,40 +14,15 @@ LED led8(23);
 
 LED leds[] = {led1, led2, led3, led4, led5, led6, led7, led8};
 
-void displayPattern(int pattern)
-{
-    for (int i = 0; i < 8; ++i)
-    {
-        if (pattern & (1 << i))
-        {
-            leds[i].ON();
-        }
-        else
-        {
-            leds[i].OFF();
-        }
-    }
-}
-
 extern "C" void app_main(void)
 {
-    const int patterns[] = {
-        0b10000001, // *......*
-        0b01000010, // .*....*.
-        0b00100100, // ..*..*..
-        0b00011000, // ...**...
-        0b00011000, // ...**...
-        0b00100100, // ..*..*..
-        0b01000010, // .*....*.
-        0b10000001  // *......*
-    };
-
-    int patternIndex = 0;
+    int i = 0;
     while (1)
     {
-        displayPattern(patterns[patternIndex]);
+        leds[i].ON();
         vTaskDelay(100 / portTICK_PERIOD_MS);
-        if (++patternIndex >= 8)
-            patternIndex = 0;
+        leds[i].OFF();
+        if (i++ >= 7)
+            i = 0;
     }
 }
