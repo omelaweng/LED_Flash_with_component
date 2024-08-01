@@ -1,0 +1,16 @@
+dependencies:
+  LED:
+    component_hash: e989f5450f2aaadefe0325d531d8b307b1a052704df167ee0cf08e13272978df
+    source:
+      git: https://github.com/omelaweng/LED_Test.git
+      path: components/LED
+      type: git
+    version: 9340a0782f2864dfde4371b252f8349981723cce
+  idf:
+    component_hash: null
+    source:
+      type: idf
+    version: 5.2.2
+manifest_hash: c9baaa533417122a2a2245446d32b557bafa63806f3f970aafecab1148e77a3a
+target: esp32
+version: 1.0.0
